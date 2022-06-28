@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { getAllProducts } from "../redux/actions/productAction";
-import axios from "axios"
+import { fetchProducts } from "../redux/actions/productAction";
+
 
 
 
@@ -13,9 +13,10 @@ const AllProducts=()=>{
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        axios.get("https://fakestoreapi.com/products").then((res)=>{
-            dispatch(getAllProducts(res.data))
-        })
+        setTimeout(()=>{
+            dispatch(fetchProducts())
+        }, 2000)
+        
     },[dispatch])
 
 
